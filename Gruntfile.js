@@ -57,7 +57,7 @@ module.exports = function (grunt) {
     i18nPaths[name] = '../../' + name;
   }
 
-  var minifiedBanner = '/*! Select2 <%= package.version %> | https://github.com/select2/select2/blob/master/LICENSE.md */';
+  var minifiedBanner = '/*! CAUTION: CUSTIMOZED FORK BY ELEVEN - Added scrollAfterSelect property (default: true) to prevent select2 from scrolling to the first option on selecting an item (https://github.com/JeffreyCamphens/select2) !   Select2 <%= package.version %> | https://github.com/select2/select2/blob/master/LICENSE.md */';
 
   grunt.initConfig({
     package: grunt.file.readJSON('package.json'),
