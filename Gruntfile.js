@@ -311,11 +311,11 @@ module.exports = function (grunt) {
       js: {
         files: [
           'src/js/select2/**/*.js',
-          'tests/**/*.js'
+          // 'tests/**/*.js'
         ],
         tasks: [
           'compile',
-          'test',
+          // 'test',
           'minify'
         ]
       },
@@ -346,7 +346,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-saucelabs');
   grunt.loadNpmTasks('grunt-sass');
 
-  grunt.registerTask('default', ['compile', 'test', 'minify']);
+  grunt.registerTask('default', ['compile', 'minify']);
 
   grunt.registerTask('compile', [
     'requirejs:dist', 'requirejs:dist.full', 'requirejs:i18n',
@@ -354,12 +354,12 @@ module.exports = function (grunt) {
     'sass:dev'
   ]);
   grunt.registerTask('minify', ['uglify', 'sass:dist']);
-  grunt.registerTask('test', ['connect:tests', 'qunit', 'jshint']);
+  // grunt.registerTask('test', ['connect:tests', 'qunit', 'jshint']);
 
   var ciTasks = [];
 
   ciTasks.push('compile');
-  ciTasks.push('connect:tests');
+  // ciTasks.push('connect:tests');
 
   /*
   // grunt-saucelabs appears to be broken with Travis altogether now.
@@ -369,7 +369,7 @@ module.exports = function (grunt) {
   }
   */
 
-  ciTasks.push('qunit');
+  // ciTasks.push('qunit');
   ciTasks.push('jshint');
 
   grunt.registerTask('ci', ciTasks);
